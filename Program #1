@@ -1,0 +1,44 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+  // Declare variables to store the user's name and birthdate.
+  string name;
+  int birthYear, birthMonth, birthDay;
+
+  // Declare variables to store the current date.  A fixed date is used for simplicity.
+  int currentYear, currentMonth, currentDay;
+
+  // Prompt the user to enter their name.
+  cout << "Enter your name: ";
+  getline(cin, name); 
+
+  // Prompt the user to enter their birthdate.
+  cout << "Enter your birth year (YYYY): ";
+  cin >> birthYear;
+  cout << "Enter your birth month (MM): ";
+  cin >> birthMonth;
+  cout << "Enter your birth day (DD): ";
+  cin >> birthDay;
+
+  // Set the current date to October 27, 2024.
+  currentYear = 2025; 
+  currentMonth = 2;  
+  currentDay = 26;   
+
+  // Calculate the age based on the birth year and current year.
+  int age = currentYear - birthYear;
+
+  // Adjust the calculated age if the user's birthday hasn't occurred yet in the current year.
+  if (currentMonth < birthMonth || (currentMonth == birthMonth && currentDay < birthDay)) {
+    age--;
+  }
+
+  // Display the user's name and calculated age.
+  cout << "\nName: " << name << endl;
+  cout << "Age: " << age << endl;
+
+  return 0;
+}
